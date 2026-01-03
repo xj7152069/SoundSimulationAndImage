@@ -30,7 +30,6 @@ int main(int argc , char *argv[])
     obj.dataOrig2d=obj.ForwardTowOneShot(obj.sxEnd,1);
     datawrite(obj.dataOrig2d,obj.fileDirectEnd.c_str());
 
-
 /*Modeling of Tow Multi-Shot: vp->cs*/
     obj.ReadPar(argv[1]);
     obj.ncpu=maxThread/(abs(obj.sxEnd-obj.sxBeg)/obj.sxGap+1);
