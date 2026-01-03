@@ -1,0 +1,71 @@
+地震数据正演/成像模块用户手册
+模块路径：./forward/
+处理流程：
+1程序编译及运行： 
+Linux系统 + GCC4.9及以上版本；
+2程序编译及运行
+填好参数卡文件001.par；
+在模块所在目录下打开终端；
+终端输入 bash 001.run.sh 编译并运行程序；
+得到输出的模拟数据 fileRootPath/ fileCSorig.xxxxx；
+3参数卡文件：001.par 格式说明
+= "exit=;" 是退出标识符；
+= 输入格式为：“参数名=参数值;”
+= 参数名是固定的；
+= 参数逐行输入，不能包含空格；
+= 在第一个单词前输入“=”将跳过该行；
+= 参数输入行的顺序可以互换；
+= 可以删除无用的参数行；
+4参数含义说明
+==输入输出文件数据的根目录（填null则为空）：
+fileRootPath=./data/;
+==正演速度模型：
+
+filevp=sigsbee2a.500.1501.5.5.dat;
+==输出直达波，可用去除直达波：
+fileDirectBeg=direct.free.sxBeg.dat;
+fileDirectEnd=direct.free.sxEnd.dat;
+==输出模拟的单炮记录（含直达波）：
+fileCSorig=cs.orig.pml.dat;
+==输出模拟的单炮记录（不含直达波）：
+fileOutSwap=cs.pml.deda.dat;
+==时间模拟点数：
+nt=5000;
+==模型空间横向网格数：
+nxCommShot=1501;
+==模型空间垂向网格数：
+nz=500;
+==模拟的起始炮点坐标：
+sxBeg=300;
+==模拟的终点炮点坐标：
+sxEnd=1200;
+==相邻炮点间隔：
+sxGap=100;
+==单个炮模拟使用的线程：
+
+ncpu=5;
+==自由表面位置：
+izFreeSurface=0;
+==模型平滑：
+nSmooth=65;
+==模型空间网格采样间隔：
+dx=5.0;
+dz=5.0;
+==模型时间采样间隔：
+dt=0.0005;
+==水层速度：
+velWater=1500.0;
+==退出标识符表示参数读取结束：
+exit=;
+5执行文件：001.run.sh说明
+==参数卡：
+filePar="./001.par"
+==主程序：
+code="./001.forward.cpp"
+==可执行文件：
+proc="./001.out"
+==编译命令：
+rm -f $proc
+c++ -O3 $code -o $proc -lpthread -fopenmp -lblas –llapack
+==运行命令，“5”表示并行模拟的单炮数量：
+time $proc $filePar 5

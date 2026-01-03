@@ -1,0 +1,39 @@
+== Par List ==
+========================================================
+fileRootPath=null;
+== 
+filevp=./model/sigsbee2a.500.1501.5.5.dat;
+filevs=null;
+filerho=null;
+== 
+fileDirectBeg=./data/direct.free.sxBeg.dat;
+fileDirectEnd=./data/direct.free.sxEnd.dat;
+fileCSorig=./data/cs.orig.pml.dat;
+fileOutSwap=./data/cs.pml.deda.dat;
+nt=5000;
+nxCommShot=1501;
+nz=500;
+sxBeg=500;
+sxEnd=500;
+sxGap=100;
+ncpu=10;
+izFreeSurface=0;
+nSmooth=65;
+dx=5.0;
+dz=5.0;
+dt=0.0005;
+velWater=1500.0;
+========================================================
+exit=;
+
+
+= "exit=;" Is an exit identifier;
+= The input format is: "ParName=ParValue;"
+= The Parameter-Name is fixed;
+= Parameter input line by line, CanNot contain Spaces;
+= Writing the '=' at the first word will skip this line;
+= The order of parameter input line can be swapped;
+= Unuseful Parameter-lines can be deleted;
+========================================================
+
+
