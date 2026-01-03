@@ -21,7 +21,7 @@ int main(int argc , char *argv[])
     int maxThread(obj.ncpu);
     obj.nIndxNum=6;
 
-/*Modeling the direct wave: vp->dr
+/*Modeling the direct wave: vp->dr*/
     obj.ncpu=maxThread;
     obj.vp2d.fill(obj.velWater);
     obj.rho2d.fill(1000.0);
@@ -29,7 +29,7 @@ int main(int argc , char *argv[])
     datawrite(obj.dataOrig2d,obj.fileDirectBeg.c_str());
     obj.dataOrig2d=obj.ForwardTowOneShot(obj.sxEnd,1);
     datawrite(obj.dataOrig2d,obj.fileDirectEnd.c_str());
-*/
+
 
 /*Modeling of Tow Multi-Shot: vp->cs*/
     obj.ReadPar(argv[1]);
